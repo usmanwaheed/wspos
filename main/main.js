@@ -105,7 +105,7 @@ const registerHandlers = () => {
 };
 
 app.whenReady().then(async () => {
-  const dbPath = ensureDatabase();
+  const dbPath = await ensureDatabase();
   database = createDatabase(dbPath);
   registerHandlers();
   await createWindow();

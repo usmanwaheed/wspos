@@ -1,6 +1,4 @@
 const sqlite3 = require('sqlite3').verbose();
-const fs = require('fs');
-const path = require('path');
 const crypto = require('crypto');
 
 const hashPassword = (password) =>
@@ -60,16 +58,6 @@ const all = (db, sql, params = []) =>
   });
 
 function createDatabase(dbPath) {
-  const exists = fs.existsSync(dbPath);
-  if (!exists) {
-    const sourcePath = path.join(__dirname, 'seed', 'pos.db');
-    if (fs.existsSync(sourcePath)) {
-      fs.copyFileSync(sourcePath, dbPath);
-    } else {
-      throw new Error('Seed database not found at ' + sourcePath);
-    }
-  }
-
   const db = new sqlite3.Database(dbPath);
 
   const buildProductPayload = (rows) => {

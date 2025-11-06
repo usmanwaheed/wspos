@@ -43,14 +43,7 @@
       "main/**/*",
       "renderer/dist/**/*",
       "database/**/*",
-      "pos.db",
       "package.json"
-    ],
-    "extraResources": [
-      {
-        "from": "database/seed/pos.db",
-        "to": "pos.db"
-      }
     ],
     "win": {
       "target": "nsis"
